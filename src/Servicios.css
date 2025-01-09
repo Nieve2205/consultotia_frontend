@@ -1,0 +1,314 @@
+/* Servicios.css */
+:root {
+  --primary-blue: #1e3d59;
+  --secondary-blue: #17517e;
+  --primary-orange: #ff6e40;
+  --secondary-orange: #ff8a65;
+  --light-gray: #f5f7fa;
+  --white: #ffffff;
+  --text-dark: #2d3436;
+}
+
+.modern-services {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+}
+
+/* Header Styles */
+.services-header {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--secondary-blue), var(--primary-orange));
+  border-radius: 15px;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.glass-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  z-index: 1;
+}
+
+.services-header h1 {
+  position: relative;
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  z-index: 2;
+  font-weight: 700;
+}
+
+.services-header p {
+  position: relative;
+  font-size: 1.2em;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+/* Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* Service Item Styles */
+.service-item {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.service-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-item:hover .service-image-container img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.explore-btn {
+  padding: 12px 30px;
+  background: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.explore-btn:hover {
+  background: var(--secondary-orange);
+  transform: scale(1.05);
+}
+
+.service-info {
+  padding: 20px;
+}
+
+.service-info h3 {
+  color: var(--primary-blue);
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.service-info p {
+  color: var(--text-dark);
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.no-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-image span {
+  font-size: 3em;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: var(--primary-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-header {
+    padding: 40px 20px;
+  }
+
+  .services-header h1 {
+    font-size: 2em;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .service-image-container {
+    height: 200px;
+  }
+
+  .service-info {
+    padding: 15px;
+  }
+
+  .explore-btn {
+    padding: 10px 25px;
+    font-size: 0.9em;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-item {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Añade estos estilos a tu archivo Servicios.css */
+
+.download-section {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.download-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  z-index: 1;
+}
+
+.download-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.download-content h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.download-content p {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--primary-orange);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.download-button:hover {
+  background-color: var(--secondary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:active {
+  transform: translateY(0);
+}
+
+.download-icon {
+  font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .download-section {
+      margin: 20px 0;
+      padding: 20px;
+  }
+
+  .download-content h2 {
+      font-size: 1.5em;
+  }
+
+  .download-content p {
+      font-size: 1em;
+  }
+
+  .download-button {
+      padding: 10px 20px;
+      font-size: 0.9em;
+  }
+}

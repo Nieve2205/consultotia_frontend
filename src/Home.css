@@ -1,0 +1,220 @@
+/* Variables */
+:root {
+    --modern-blue: #0052cc;
+    --modern-orange: #ff6b2b;
+    --text-dark: #2d3436;
+    --text-light: #636e72;
+}
+
+/* Contenedor Principal */
+.home-container {
+    overflow-x: hidden;
+}
+
+/* Estilos del Carrusel */
+.modern-carousel {
+    position: relative;
+    height: 100vh;
+    max-height: 800px;
+}
+
+.modern-carousel .carousel-item {
+    height: 100vh;
+    max-height: 800px;
+}
+
+.modern-carousel img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 82, 204, 0.7), rgba(255, 107, 43, 0.7));
+    z-index: 1;
+}
+
+.modern-caption {
+    z-index: 2;
+    text-align: left;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    max-width: 800px;
+    padding-left: 10%;
+}
+
+.caption-content {
+    padding: 2rem;
+}
+
+.modern-btn {
+    background: linear-gradient(45deg, var(--modern-blue), var(--modern-orange));
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.modern-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, var(--modern-orange), var(--modern-blue));
+}
+
+/* Sección de Bienvenida */
+.welcome-section {
+    padding: 8rem 0;
+    background: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.welcome-image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-image {
+    width: 100%;
+    height: auto;
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+.welcome-image-container:hover .welcome-image {
+    transform: scale(1);
+}
+
+.welcome-content {
+    padding: 2rem 3rem;
+}
+
+.accent-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--modern-blue), var(--modern-orange));
+    border-radius: 2px;
+}
+
+.modern-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--modern-blue), var(--modern-orange));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.modern-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    background: linear-gradient(45deg, var(--modern-orange), var(--modern-blue));
+}
+
+.contact-box {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de Propósito */
+.purpose-section {
+    position: relative;
+    background-color: #1a1a1a;
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(1, 120, 255, 0.9) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
+
+.purpose-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 3rem;
+}
+
+.purpose-image {
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) rotateY(-15deg);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .modern-carousel, .modern-carousel .carousel-item {
+        height: 70vh;
+    }
+    
+    .modern-caption {
+        padding-left: 5%;
+        text-align: center;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .welcome-content {
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+    
+    .accent-line {
+        margin: 0 auto;
+    }
+    
+    .purpose-content {
+        padding: 0 1.5rem;
+    }
+    
+    .purpose-image {
+        width: 100%;
+        transform: none;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modern-carousel, .modern-carousel .carousel-item {
+        height: 60vh;
+    }
+    
+    .caption-content {
+        padding: 1rem;
+    }
+    
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+}

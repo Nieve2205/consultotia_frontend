@@ -1,0 +1,405 @@
+/* ServicioDetalle.css */
+:root {
+    --primary-blue: #1e3d59;
+    --secondary-blue: #17517e;
+    --primary-orange: #ff6e40;
+    --secondary-orange: #ff8a65;
+    --light-gray: #f5f7fa;
+    --white: #ffffff;
+    --text-dark: #2d3436;
+    --gradient-blue: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  }
+  
+  .service-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    min-height: 100vh;
+    background-color: var(--white);
+  }
+  
+  /* Header Section */
+  .detail-header {
+    position: relative;
+    margin: -20px -20px 40px;
+    padding: 60px 20px;
+    background: var(--gradient-blue);
+    color: var(--white);
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .back-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  
+  .back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+  }
+  
+  .category-title {
+    font-size: 2.5em;
+    margin: 20px 0;
+    font-weight: 700;
+  }
+  
+  .category-description {
+    font-size: 1.1em;
+    opacity: 0.9;
+    max-width: 800px;
+    line-height: 1.6;
+  }
+  
+  /* Main Category Image */
+  .category-main-image {
+    width: 100%;
+    height: 400px;
+    margin: 30px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .category-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Subcategories Section */
+  .subcategories-container {
+    margin-top: 40px;
+  }
+  
+  .subcategory-card {
+    background: #e7e3e3;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .subcategory-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .subcategory-title {
+    color: var(--primary-blue);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-orange);
+  }
+  
+  .subcategory-description {
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+  }
+  
+  .service-card {
+    background: var(--light-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .service-image {
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .service-content {
+    padding: 20px;
+  }
+  
+  .service-title {
+    color: var(--primary-blue);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .subcategory-description {
+    white-space: pre-wrap; 
+    color: var(--text-dark);
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  /* Loading State */
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    font-size: 1.2em;
+    color: var(--primary-blue);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .subcategory-card {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .detail-header {
+      padding: 40px 20px;
+    }
+  
+    .category-title {
+      font-size: 2em;
+    }
+  
+    .category-main-image {
+      height: 250px;
+    }
+  
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .service-images {
+      grid-template-columns: 1fr;
+    }
+  
+    .subcategory-card {
+      padding: 20px;
+    }
+  }
+  
+  /* Error State */
+  .error-message {
+    background-color: #fef2f2;
+    border-left: 4px solid #ef4444;
+    color: #991b1b;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+  }
+  
+  /* Empty State */
+  .no-services {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-dark);
+    font-style: italic;
+  }
+  
+  /* Badge Styles */
+  .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-right: 10px;
+  }
+  
+  .status-badge.active {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .status-badge.inactive {
+    background-color: #ef4444;
+    color: white;
+  }
+
+  /* Estilos específicos para el botón dentro de la tarjeta */
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-card-button {
+    background-color: #25D366;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-card-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+  }
+  
+  /* Ajuste responsive */
+  @media (max-width: 768px) {
+    .card-footer {
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    
+    .contact-card-button {
+      text-align: center;
+    }
+  }
+
+  /* Añade estos estilos a tu archivo Servicios.css */
+
+.download-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: 15px;
+    padding: 30px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.download-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    z-index: 1;
+}
+
+.download-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.download-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.download-content p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.download-button:hover {
+    background-color: var(--secondary-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:active {
+    transform: translateY(0);
+}
+
+.download-icon {
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .download-section {
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .download-content h2 {
+        font-size: 1.5em;
+    }
+
+    .download-content p {
+        font-size: 1em;
+    }
+
+    .download-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
