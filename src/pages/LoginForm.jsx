@@ -142,7 +142,7 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/api/token/', {
+      const response = await fetch('https://consultoria.up.railway.app/api/token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ const LoginForm = () => {
         // También guardar en localStorage
         localStorage.setItem('token', data.access);
 
-        const adminCheck = await fetch('http://localhost:8000/api/check-admin/', {
+        const adminCheck = await fetch('https://consultoria.up.railway.app/api/check-admin/', {
           headers: {
             'Authorization': `Bearer ${data.access}`,
             'Content-Type': 'application/json',
