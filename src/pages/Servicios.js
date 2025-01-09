@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Servicios.css';
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://consultoria.up.railway.app';
 
 const Servicios = () => {
   const [categories, setCategories] = useState([]);

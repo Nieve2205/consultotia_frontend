@@ -92,7 +92,7 @@ const Experiencia = () => {
       <section className="projects-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Nuestros Proyectos</h2>
+            <h2 className="section-title">Nuestros Clientes</h2>
             <div className="section-divider"></div>
             <p className="section-description">
               Descubre cómo hemos ayudado a empresas a mejorar su seguridad y salud ocupacional
