@@ -34,7 +34,7 @@ const AdminPanel = () => {
           const token = localStorage.getItem('token');
           console.log('Fetching categories...');
   
-          const response = await fetch('http://localhost:8000/api/service-categories/', {
+          const response = await fetch('https://consultoria.up.railway.app/api/service-categories/', {
               method: 'GET',  // Explícitamente especificar GET
               headers: {
                   'Accept': 'application/json',
@@ -93,7 +93,7 @@ const AdminPanel = () => {
                 }
     
                 const response = await fetch(
-                    `http://localhost:8000/api/service-categories/${editingCategory.id}/`, 
+                    `https://consultoria.up.railway.app/api/service-categories/${editingCategory.id}/`, 
                     {
                         method: 'PUT',
                         headers: {
@@ -121,7 +121,7 @@ const AdminPanel = () => {
             } else {
                 //código para crear nueva categoría
                 const response = await fetch(
-                    'http://localhost:8000/api/service-categories/',
+                    'https://consultoria.up.railway.app/api/service-categories/',
                     {
                         method: 'POST',
                         headers: {
@@ -162,7 +162,7 @@ const AdminPanel = () => {
         
         try {
             const response = await fetch(
-                `http://localhost:8000/api/service-categories/${id}/`,
+                `https://consultoria.up.railway.app/api/service-categories/${id}/`,
                 {
                     method: 'DELETE',
                     headers: {
@@ -188,7 +188,7 @@ const AdminPanel = () => {
     const handleEdit = (category) => {
         setEditingCategory(category);
         if (category.image) {
-            setPreviewImage(`http://localhost:8000${category.image}`);
+            setPreviewImage(`https://consultoria.up.railway.app${category.image}`);
         }
     };
 
