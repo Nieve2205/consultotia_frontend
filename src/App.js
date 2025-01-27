@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PrivateAdminRoute from './components/PrivateAdminRoute';
+import PrivateAdminRoute from '../src/PrivateAdminRoute';
 import Home from './pages/Home';
 import AdminPanel from './components/AdminPanel';
 import NavigationBar from './components/NavigationBar';
