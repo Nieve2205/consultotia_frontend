@@ -34,7 +34,7 @@ const BrochureDownload = ({ brochure, getFileUrl }) => {
       <div className="download-content">
         <h2>Conoce más sobre nuestros servicios</h2>
         <p>Descarga nuestro brochure completo de servicios y descubre todo lo que podemos ofrecerte.</p>
-        {brochure && (
+        {brochure ? (
           <a 
             href={getFileUrl(brochure.file)}
             className="download-button"
@@ -42,6 +42,8 @@ const BrochureDownload = ({ brochure, getFileUrl }) => {
           >
             {isMobile ? 'Ver' : 'Descargar'} {brochure.title} <span className="download-icon">📥</span>
           </a>
+        ) : (
+            <p>Cargando brochure...</p>
         )}
       </div>
     </div>

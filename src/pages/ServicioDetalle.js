@@ -23,17 +23,18 @@ const ServicioDetalle = () => {
 
   const fetchBrochure = async () => {
     try {
-        const response = await fetch(`${BASE_URL}/api/brochures/`);
-        const data = await response.json();
-        // Asumimos que queremos el brochure más reciente
-        if (data && data.length > 0) {
-            setBrochure(data[0]);
-        }
+      const response = await fetch(`${BASE_URL}/api/brochures/`);
+      const data = await response.json();
+      // Asumimos que queremos el brochure más reciente
+      if (data && data.length > 0) {
+        setBrochure(data[0]);
+      }
     } catch (error) {
-        console.error('Error al cargar el brochure:', error);
+      console.error('Error al cargar el brochure:', error);
+      setBrochure(null); // Establecer brochure a null en caso de error
     }
   };
-
+  
   const fetchData = async () => {
     try {
       const [categoryRes, subcategoriesRes, servicesRes] = await Promise.all([
