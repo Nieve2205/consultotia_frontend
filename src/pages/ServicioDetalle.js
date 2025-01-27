@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../ServicioDetalle.css';
+import BrochureDownload from '../components/BrochureDownload';
 
 const BASE_URL = 'https://consultoria.up.railway.app';
 
@@ -101,25 +102,7 @@ const ServicioDetalle = () => {
         </div>
       )}
 
-      <div className="download-section">
-            <div className="download-content">
-                <h2>Conoce más sobre nuestros servicios</h2>
-                <p>Descarga nuestro brochure completo de servicios y descubre todo lo que podemos ofrecerte.</p>
-                {brochure && (
-                    <a 
-                        href={getFileUrl(brochure.file)}
-                        download
-                        className="download-button"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(getFileUrl(brochure.file), '_blank', 'noopener,noreferrer');
-                        }}
-                    >
-                        Descargar {brochure.title} <span className="download-icon">📥</span>
-                    </a>
-                )}
-            </div>
-        </div>
+      <BrochureDownload brochure={brochure} getFileUrl={getFileUrl} />
 
       <div className="subcategories-container">
         {subcategories.length === 0 ? (

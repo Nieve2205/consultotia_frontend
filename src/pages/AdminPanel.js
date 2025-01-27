@@ -15,7 +15,6 @@ const AdminPanel = () => {
     // Obtener el token del localStorage
     const getAuthHeader = () => {
       const token = localStorage.getItem('token');
-      console.log('Token:', token); // Para debug
       return {
           headers: {
               'Authorization': `Bearer ${token}`,
@@ -35,11 +34,10 @@ const AdminPanel = () => {
           console.log('Fetching categories...');
   
           const response = await fetch('https://consultoria.up.railway.app/api/service-categories/', {
-              method: 'GET',  // Explícitamente especificar GET
+              method: 'GET', 
               headers: {
                   'Accept': 'application/json',
                   'Content-Type': 'application/json'
-                  // No necesitamos el token para GET si es público
               }
           });
   
@@ -74,7 +72,6 @@ const AdminPanel = () => {
         e.preventDefault();
         setLoading(true);
         const token = localStorage.getItem('token');
-        console.log('Token usado:', token); // Debug token
     
         try {
             const formData = new FormData(e.target);
