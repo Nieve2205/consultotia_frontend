@@ -1,10 +1,10 @@
 // AdminContainer.js
 import React, { useState } from 'react';
 import AdminPanel from '../components/AdminPanel';
-import SubcategoryPanel from '../components/SubcategoryPanel';
-import ServicePanel from '../components/ServicePanel';
-import BrochurePanel from '../components/BrochurePanel';
-import BlogPanel from '../components/BlogPanel';
+import SubcategoryPanel from './SubcategoryPanel';
+import ServicePanel from './ServicePanel';
+import BrochurePanel from './BrochurePanel';
+import BlogPanel from './BlogPanel';
 import '../AdminPanel.css';
 
 const AdminContainer = () => {

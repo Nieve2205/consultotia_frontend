@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateAdminRoute from '../src/PrivateAdminRoute';
 import Home from './pages/Home';
-import AdminPanel from './pages/AdminPanel';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import Nosotros from './pages/Nosotros';
