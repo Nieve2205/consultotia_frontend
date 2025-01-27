@@ -14,7 +14,7 @@ import WhatsappButton from './components/WhatsappButton';
 import Servicios from './pages/Servicios';
 import ServicioDetalle from './pages/ServicioDetalle';
 import LoginForm from './pages/LoginForm';
-import AdminContainer from './components/AdminContainer';
+import AdminContainer from './pages/AdminContainer';
 import Blog from './pages/Blog';
 import BlogPostDetail from './pages/BlogDetails';
 
