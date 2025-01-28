@@ -4,6 +4,7 @@ import "../OfferPanel.css"
 
 const OfferPanel = () => {
   const [offers, setOffers] = useState([]);
+  const [services, setServices] = useState([]);
   const [newOffer, setNewOffer] = useState({
     title: '',
     description: '',
@@ -13,15 +14,19 @@ const OfferPanel = () => {
   });
 
   useEffect(() => {
-    fetchOffers();
+    fetchData();
   }, []);
 
-  const fetchOffers = async () => {
+  const fetchData = async () => {
     try {
-      const response = await axios.get('/api/offers/');
-      setOffers(response.data);
+      const [offersResponse, servicesResponse] = await Promise.all([
+        axios.get('https://consultoria.up.railway.app/api/offers/'),
+        axios.get('https://consultoria.up.railway.app/api/services/')
+      ]);
+      setOffers(offersResponse.data);
+      setServices(servicesResponse.data);
     } catch (error) {
-      console.error('Error al cargar las ofertas:', error);
+      console.error('Error al cargar los datos:', error);
     }
   };
 
@@ -49,8 +54,8 @@ const OfferPanel = () => {
         formData.append('image', newOffer.image);
       }
 
-      await axios.post('/api/offers/', formData);
-      fetchOffers();
+      await axios.post('https://consultoria.up.railway.app/api/offers/', formData);
+      fetchData();
       setNewOffer({
         title: '',
         description: '',
@@ -65,8 +70,8 @@ const OfferPanel = () => {
 
   const handleDeleteOffer = async (offerId) => {
     try {
-      await axios.delete(`/api/offers/${offerId}/`);
-      fetchOffers();
+      await axios.delete(`https://consultoria.up.railway.app/api/offers/${offerId}/`);
+      fetchData();
     } catch (error) {
       console.error('Error al eliminar la oferta:', error);
     }
@@ -109,10 +114,11 @@ const OfferPanel = () => {
           value={newOffer.services}
           onChange={handleServicesChange}
         >
-          {/* Aquí debes obtener los servicios disponibles desde tu API */}
-          <option value="1">Servicio 1</option>
-          <option value="2">Servicio 2</option>
-          <option value="3">Servicio 3</option>
+          {services.map((service) => (
+            <option key={service.id} value={service.id}>
+              {service.title}
+            </option>
+          ))}
         </select>
         <button onClick={handleSaveOffer}>Guardar Oferta</button>
       </div>
@@ -124,6 +130,14 @@ const OfferPanel = () => {
             <h4>{offer.title}</h4>
             <p>{offer.description}</p>
             <p>Precio: {offer.price}</p>
+            <div>
+              Servicios:
+              {offer.services.map((service) => (
+                <span key={service.id} className="service-tag">
+                  {service.title}
+                </span>
+              ))}
+            </div>
             <button onClick={() => handleDeleteOffer(offer.id)}>Eliminar</button>
           </div>
         ))}
