@@ -5,6 +5,7 @@ import SubcategoryPanel from './SubcategoryPanel';
 import ServicePanel from './ServicePanel';
 import BrochurePanel from './BrochurePanel';
 import BlogPanel from './BlogPanel';
+import OfferPanel from './OfferPanel'; 
 import '../AdminPanel.css';
 
 const AdminContainer = () => {
@@ -43,6 +44,12 @@ const AdminContainer = () => {
                 >
                     Blog
                 </button>
+                <button 
+                    className={`tab-button ${activeTab === 'offers' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('offers')}
+                >
+                    Ofertas
+                </button>
             </div>
 
             <div className="admin-content">
@@ -51,6 +58,7 @@ const AdminContainer = () => {
                 {activeTab === 'services' && <ServicePanel />}
                 {activeTab === 'brochures' && <BrochurePanel />}
                 {activeTab === 'blog' && <BlogPanel />}
+                {activeTab === 'offers' && <OfferPanel />} 
             </div>
         </div>
     );
