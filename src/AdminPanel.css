@@ -723,3 +723,9 @@ button:disabled {
       text-align: center;
   }
 }
+
+.offer-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
