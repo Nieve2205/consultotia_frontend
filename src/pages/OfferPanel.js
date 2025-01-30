@@ -87,7 +87,7 @@ const OfferPanel = () => {
         <h1>{editingOffer ? 'Editar Oferta' : 'Gestion de Oferta'}</h1>
 
         <div className="form-section">
-          <h1>{editingOffer ? 'Editar Oferta' : 'Nueva Oferta'}</h1>
+          <h2>{editingOffer ? 'Editar Oferta' : 'Nueva Oferta'}</h2>
           <div className="form">
             <div className="form-group">
               <label>Título de la Oferta:</label>
