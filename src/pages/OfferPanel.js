@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../AdminPanel.css';
 
+const BASE_URL = 'https://consultoria.up.railway.app';
+
 const OfferPanel = () => {
   const [offers, setOffers] = useState([]);
   const [editingOffer, setEditingOffer] = useState(null);
@@ -19,7 +21,7 @@ const OfferPanel = () => {
   const fetchData = async () => {
     try {
       const [offersResponse] = await Promise.all([
-        axios.get('https://consultoria.up.railway.app/api/offers/'),
+        axios.get(`${BASE_URL}/api/offers/`),
       ]);
       setOffers(offersResponse.data);
     } catch (error) {
@@ -46,9 +48,9 @@ const OfferPanel = () => {
       }
   
       if (editingOffer) {
-        await axios.put(`https://consultoria.up.railway.app/api/offers/${editingOffer.id}/`, formData);
+        await axios.put(`${BASE_URL}/api/offers/${editingOffer.id}/`, formData);
       } else {
-        await axios.post('https://consultoria.up.railway.app/api/offers/', formData);
+        await axios.post(`${BASE_URL}/api/offers/`, formData);
       }
       fetchData();
       setNewOffer({
@@ -63,10 +65,10 @@ const OfferPanel = () => {
       console.error('Error details:', error);
     }
   };
-  
+
   const handleDeleteOffer = async (offerId) => {
     try {
-      await axios.delete(`https://consultoria.up.railway.app/api/offers/${offerId}/`);
+      await axios.delete(`${BASE_URL}/api/offers/${offerId}/`);
       fetchData();
     } catch (error) {
       console.error('Error al eliminar la oferta:', error);
@@ -82,6 +84,12 @@ const OfferPanel = () => {
     });
     setEditingOffer(offer);
   };
+
+  const getImageUrl = (imageUrl) => {
+    if (!imageUrl) return null;
+    if (imageUrl.startsWith('http')) return imageUrl;
+    return `${BASE_URL}${imageUrl}`;
+};
 
   return (
     <div className="admin-panel">
@@ -155,7 +163,8 @@ const OfferPanel = () => {
                 <div key={offer.id} className="category-item">
                   <div className="category-image">
                     {offer.image ? (
-                      <img src={`https://consultoria.up.railway.app${offer.image}`} alt={offer.title} />
+                      <img src={getImageUrl(offer.image)} 
+                      alt={offer.title} />
                     ) : (
                       <div className="no-image">Sin imagen</div>
                     )}
