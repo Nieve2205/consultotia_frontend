@@ -84,10 +84,6 @@ const OfferPanel = () => {
 
   return (
     <div className="admin-container">
-      <div className="admin-tabs">
-        <button className="tab-button active">Ofertas</button>
-      </div>
-
       <div className="list-section">
         <h2>Gestión de Ofertas</h2>
 
