@@ -43,7 +43,7 @@
 }
 
 /* Secciones principales */
-.form-section, .list-section {
+.form-section {
     background: var(--white);
     padding: 25px;
     border-radius: 10px;
