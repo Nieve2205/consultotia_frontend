@@ -83,12 +83,11 @@ const OfferPanel = () => {
   };
 
   return (
-    <div className="admin-container">
-      <div className="list-section">
-        <h2>Gestión de Ofertas</h2>
+    <div className="admin-panel">
+        <h1>{editingOffer ? 'Editar Oferta' : 'Gestion de Oferta'}</h1>
 
-        <div className="offer-form">
-          <h3>{editingOffer ? 'Editar Oferta' : 'Nueva Oferta'}</h3>
+        <div className="form-section">
+          <h1>{editingOffer ? 'Editar Oferta' : 'Nueva Oferta'}</h1>
           <div className="form">
             <div className="form-group">
               <label>Título de la Oferta:</label>
@@ -178,7 +177,6 @@ const OfferPanel = () => {
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 };
