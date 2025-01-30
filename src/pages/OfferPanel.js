@@ -44,7 +44,7 @@ const OfferPanel = () => {
       if (newOffer.image) {
         formData.append('image', newOffer.image);
       }
-
+  
       if (editingOffer) {
         await axios.put(`https://consultoria.up.railway.app/api/offers/${editingOffer.id}/`, formData);
       } else {
@@ -59,10 +59,11 @@ const OfferPanel = () => {
       });
       setEditingOffer(null);
     } catch (error) {
-      console.error('Error al guardar la oferta:', error);
+      console.error('Error al guardar la oferta:', error.message);
+      console.error('Error details:', error);
     }
   };
-
+  
   const handleDeleteOffer = async (offerId) => {
     try {
       await axios.delete(`https://consultoria.up.railway.app/api/offers/${offerId}/`);
@@ -135,7 +136,7 @@ const OfferPanel = () => {
             </div>
             <div className="form-buttons">
               <button className="submit-button" onClick={handleSaveOffer}>
-                {editingOffer ? 'Guardar Cambios' : 'Guardar Oferta'}
+                {editingOffer ? 'Actualizar' : 'Guardar '}
               </button>
               <button className="cancel-button" onClick={() => setEditingOffer(null)}>
                 Cancelar
@@ -162,7 +163,7 @@ const OfferPanel = () => {
                   <div className="category-content">
                     <h3>{offer.title}</h3>
                     <p>{offer.description}</p>
-                    <p>Precio: {offer.price}</p>
+                    <p>Precio: S/. {offer.price}</p>
                     <div className="category-actions">
                       <button className="edit-button" onClick={() => handleEditOffer(offer)}>
                         Editar
