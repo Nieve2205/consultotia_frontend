@@ -589,8 +589,8 @@ button:disabled {
 /* Estilos para la lista de noticias */
 .news-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 .news-item {
@@ -722,10 +722,4 @@ button:disabled {
       width: 100%;
       text-align: center;
   }
-}
-
-.offer-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
 }

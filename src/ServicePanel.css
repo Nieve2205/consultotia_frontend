@@ -43,19 +43,13 @@
 }
 
 /* Secciones principales */
-.form-section {
+.form-section, .list-section {
     background: var(--white);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     margin-bottom: 30px;
-
-}
-
-.list-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    
 }
 
 /* Formularios */
