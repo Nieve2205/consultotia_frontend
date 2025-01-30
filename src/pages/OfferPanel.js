@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../OfferPanel.css"
+import '../AdminPanel.css';
 
 const OfferPanel = () => {
   const [offers, setOffers] = useState([]);
-  const [services, setServices] = useState([]);
+  const [editingOffer, setEditingOffer] = useState(null);
   const [newOffer, setNewOffer] = useState({
     title: '',
     description: '',
-    services: [],
     price: 0,
     image: null
   });
@@ -19,12 +18,10 @@ const OfferPanel = () => {
 
   const fetchData = async () => {
     try {
-      const [offersResponse, servicesResponse] = await Promise.all([
+      const [offersResponse] = await Promise.all([
         axios.get('https://consultoria.up.railway.app/api/offers/'),
-        axios.get('https://consultoria.up.railway.app/api/services/')
       ]);
       setOffers(offersResponse.data);
-      setServices(servicesResponse.data);
     } catch (error) {
       console.error('Error al cargar los datos:', error);
     }
@@ -38,31 +35,29 @@ const OfferPanel = () => {
     setNewOffer({ ...newOffer, image: e.target.files[0] });
   };
 
-  const handleServicesChange = (e) => {
-    const selectedServices = Array.from(e.target.selectedOptions, (option) => option.value);
-    setNewOffer({ ...newOffer, services: selectedServices });
-  };
-
   const handleSaveOffer = async () => {
     try {
       const formData = new FormData();
       formData.append('title', newOffer.title);
       formData.append('description', newOffer.description);
       formData.append('price', newOffer.price);
-      newOffer.services.forEach((service) => formData.append('services', service));
       if (newOffer.image) {
         formData.append('image', newOffer.image);
       }
 
-      await axios.post('https://consultoria.up.railway.app/api/offers/', formData);
+      if (editingOffer) {
+        await axios.put(`https://consultoria.up.railway.app/api/offers/${editingOffer.id}/`, formData);
+      } else {
+        await axios.post('https://consultoria.up.railway.app/api/offers/', formData);
+      }
       fetchData();
       setNewOffer({
         title: '',
         description: '',
-        services: [],
         price: 0,
         image: null
       });
+      setEditingOffer(null);
     } catch (error) {
       console.error('Error al guardar la oferta:', error);
     }
@@ -77,70 +72,116 @@ const OfferPanel = () => {
     }
   };
 
-  return (
-    <div className="offer-panel">
-      <h2>Gestión de Ofertas</h2>
+  const handleEditOffer = (offer) => {
+    setNewOffer({
+      title: offer.title,
+      description: offer.description,
+      price: offer.price,
+      image: null
+    });
+    setEditingOffer(offer);
+  };
 
-      <div className="offer-form">
-        <h3>Nueva Oferta</h3>
-        <input
-          type="text"
-          name="title"
-          placeholder="Título de la Oferta"
-          value={newOffer.title}
-          onChange={handleInputChange}
-        />
-        <textarea
-          name="description"
-          placeholder="Descripción de la Oferta"
-          value={newOffer.description}
-          onChange={handleInputChange}
-        ></textarea>
-        <input
-          type="number"
-          name="price"
-          placeholder="Precio de la Oferta"
-          value={newOffer.price}
-          onChange={handleInputChange}
-        />
-        <input
-          type="file"
-          name="image"
-          onChange={handleImageChange}
-        />
-        <select
-          name="services"
-          multiple
-          value={newOffer.services}
-          onChange={handleServicesChange}
-        >
-          {services.map((service) => (
-            <option key={service.id} value={service.id}>
-              {service.title}
-            </option>
-          ))}
-        </select>
-        <button onClick={handleSaveOffer}>Guardar Oferta</button>
+  return (
+    <div className="admin-container">
+      <div className="admin-tabs">
+        <button className="tab-button active">Ofertas</button>
       </div>
 
-      <div className="offer-list">
-        <h3>Ofertas Existentes</h3>
-        {offers.map((offer) => (
-          <div key={offer.id} className="offer-item">
-            <h4>{offer.title}</h4>
-            <p>{offer.description}</p>
-            <p>Precio: {offer.price}</p>
-            <div>
-              Servicios:
-              {offer.services.map((service) => (
-                <span key={service.id} className="service-tag">
-                  {service.title}
-                </span>
+      <div className="list-section">
+        <h2>Gestión de Ofertas</h2>
+
+        <div className="offer-form">
+          <h3>{editingOffer ? 'Editar Oferta' : 'Nueva Oferta'}</h3>
+          <div className="form">
+            <div className="form-group">
+              <label>Título de la Oferta:</label>
+              <input
+                type="text"
+                name="title"
+                placeholder="Título de la Oferta"
+                value={newOffer.title}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Descripción de la Oferta:</label>
+              <textarea
+                name="description"
+                placeholder="Descripción de la Oferta"
+                value={newOffer.description}
+                onChange={handleInputChange}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label>Precio de la Oferta:</label>
+              <input
+                type="number"
+                name="price"
+                placeholder="Precio de la Oferta"
+                value={newOffer.price}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label>Imagen de la Oferta:</label>
+              <div className="file-input">
+                <input
+                  type="file"
+                  name="image"
+                  onChange={handleImageChange}
+                />
+              </div>
+              {newOffer.image && (
+                <div className="image-preview">
+                  <img src={URL.createObjectURL(newOffer.image)} alt="Preview" />
+                </div>
+              )}
+            </div>
+            <div className="form-buttons">
+              <button className="submit-button" onClick={handleSaveOffer}>
+                {editingOffer ? 'Guardar Cambios' : 'Guardar Oferta'}
+              </button>
+              <button className="cancel-button" onClick={() => setEditingOffer(null)}>
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="list-section">
+          <h2>Ofertas Existentes</h2>
+          {offers.length === 0 ? (
+            <div className="no-data">No hay ofertas disponibles</div>
+          ) : (
+            <div className="offer-list">
+              {offers.map((offer) => (
+                <div key={offer.id} className="category-item">
+                  <div className="category-image">
+                    {offer.image ? (
+                      <img src={`https://consultoria.up.railway.app${offer.image}`} alt={offer.title} />
+                    ) : (
+                      <div className="no-image">Sin imagen</div>
+                    )}
+                  </div>
+                  <div className="category-content">
+                    <h3>{offer.title}</h3>
+                    <p>{offer.description}</p>
+                    <p>Precio: {offer.price}</p>
+                    <div className="category-actions">
+                      <button className="edit-button" onClick={() => handleEditOffer(offer)}>
+                        Editar
+                      </button>
+                      <button className="delete-button" onClick={() => handleDeleteOffer(offer.id)}>
+                        Eliminar
+                      </button>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-            <button onClick={() => handleDeleteOffer(offer.id)}>Eliminar</button>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
     </div>
   );
