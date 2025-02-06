@@ -23,7 +23,7 @@
   text-align: center;
   padding: 60px 20px;
   margin-bottom: 40px;
-  background: linear-gradient(90deg, var(--secondary-blue), var(--primary-orange));
+  background: linear-gradient(45deg, var(--secondary-blue), var(--primary-orange));
   border-radius: 15px;
   overflow: hidden;
   color: var(--white);
