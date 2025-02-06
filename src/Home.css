@@ -241,7 +241,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(to right, #007bff, #00bcd4);
+    background: linear-gradient(to right, #007bff, #d47100);
     border-radius: 2px;
 }
 
