@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faPaperPlane, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp, faStar } from '@fortawesome/free-brands-svg-icons';
+import { faTags, faCheck, faArrowRight, faGem } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const BASE_URL = 'https://consultoria.up.railway.app';
 const Home = () => {
     const [offers, setOffers] = useState([]);
+    const [hoveredOffer, setHoveredOffer] = useState(null);
     const message = "Hola, estoy interesado en sus servicios de consultoría...";
     const encodedMessage = encodeURIComponent(message);
 
