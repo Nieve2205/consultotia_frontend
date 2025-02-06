@@ -81,48 +81,8 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Sección de Bienvenida */}
-            <div className="welcome-section">
-                <div className="container">
-                    <div className="row justify-content-center align-items-center g-5">
-                        <div className="col-lg-6">
-                            <div className="welcome-image-container">
-                                <img 
-                                    src="https://img.freepik.com/foto-gratis/vista-inferior-rascacielos-dia-soleado_23-2148230390.jpg?semt=ais_hybrid" 
-                                    alt="Office Building" 
-                                    className="welcome-image"
-                                />
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="welcome-content">
-                                <h2 className="display-4 fw-bold mb-4">Bienvenidos</h2>
-                                <div className="accent-line mb-4"></div>
-                                <h4 className="h3 mb-4">LA OPTIMIZACIÓN DE LOS PROCESOS PARA LA MEJORA CONTINUA</h4>
-                                <p className="lead mb-4">
-                                    Nuestro compromiso es la evolución de su empresa de forma impecable, 
-                                    no te preocupes el desarrollo de tu negocio es nuestro objetivo.
-                                </p>
-                                <div className="contact-box p-4">
-                                    <p className="mb-3">Contáctanos para más información sobre cómo podemos ayudarte.</p>
-                                        <a 
-                                            href={`https://wa.me/51952870388?text=${encodedMessage}`}
-                                            className="modern-contact-btn"
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                        >
-                                        <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
-                                        Contáctanos
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-             {/* Nueva sección de ofertas mejorada */}
-             <div className="offers-section-modern">
+               {/* Nueva sección de ofertas mejorada */}
+               <div className="offers-section-modern">
                 <div className="offers-background-shapes">
                     <div className="shape shape-1"></div>
                     <div className="shape shape-2"></div>
@@ -173,17 +133,6 @@ const Home = () => {
                                     <div className="modern-offer-content">
                                         <h3 className="modern-offer-title">{offer.title}</h3>
                                         <p className="modern-offer-description">{offer.description}</p>
-                                        
-                                        <div className="modern-offer-features">
-                                            <div className="feature">
-                                                <FontAwesomeIcon icon={faCheck} className="feature-icon" />
-                                                Servicio Premium
-                                            </div>
-                                            <div className="feature">
-                                                <FontAwesomeIcon icon={faCheck} className="feature-icon" />
-                                                Soporte Dedicado
-                                            </div>
-                                        </div>
 
                                         <div className="modern-price-tag">
                                             <span className="currency">S/.</span>
@@ -208,6 +157,46 @@ const Home = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Sección de Bienvenida */}
+            <div className="welcome-section">
+                <div className="container">
+                    <div className="row justify-content-center align-items-center g-5">
+                        <div className="col-lg-6">
+                            <div className="welcome-image-container">
+                                <img 
+                                    src="https://img.freepik.com/foto-gratis/vista-inferior-rascacielos-dia-soleado_23-2148230390.jpg?semt=ais_hybrid" 
+                                    alt="Office Building" 
+                                    className="welcome-image"
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="welcome-content">
+                                <h2 className="display-4 fw-bold mb-4">Bienvenidos</h2>
+                                <div className="accent-line mb-4"></div>
+                                <h4 className="h3 mb-4">LA OPTIMIZACIÓN DE LOS PROCESOS PARA LA MEJORA CONTINUA</h4>
+                                <p className="lead mb-4">
+                                    Nuestro compromiso es la evolución de su empresa de forma impecable, 
+                                    no te preocupes el desarrollo de tu negocio es nuestro objetivo.
+                                </p>
+                                <div className="contact-box p-4">
+                                    <p className="mb-3">Contáctanos para más información sobre cómo podemos ayudarte.</p>
+                                        <a 
+                                            href={`https://wa.me/51952870388?text=${encodedMessage}`}
+                                            className="modern-contact-btn"
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                        >
+                                        <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
+                                        Contáctanos
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
