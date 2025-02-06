@@ -382,7 +382,7 @@
     display: block;
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(45deg, #0057b4 50%, #ff9305 50%);
+    background: linear-gradient(45deg, #0057b4 0%, #ffa705 100%);
     color: white;
     text-align: center;
     border-radius: 12px;
@@ -395,7 +395,7 @@
 }
 
 .modern-cta-button:hover {
-    background: linear-gradient(45deg, #ff9305 50%, #0057b4 50%);
+    background: linear-gradient(45deg, #ffa705 0%, #0057b4 100%);
     color: white;
     transform: translateY(-2px);
 }
