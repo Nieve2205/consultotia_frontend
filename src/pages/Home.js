@@ -120,51 +120,89 @@ const Home = () => {
                 </div>
             </div>
 
-             {/* Nueva sección de ofertas */}
-             <div className="offers-section py-5">
-                <div className="container">
+             {/* Nueva sección de ofertas mejorada */}
+             <div className="offers-section-modern">
+                <div className="offers-background-shapes">
+                    <div className="shape shape-1"></div>
+                    <div className="shape shape-2"></div>
+                    <div className="shape shape-3"></div>
+                </div>
+                
+                <div className="container position-relative">
                     <div className="text-center mb-5">
-                        <h2 className="display-4 fw-bold text-primary">
-                            <FontAwesomeIcon icon={faTags} className="me-3" />
-                            Ofertas Especiales
+                        <div className="section-badge">
+                            <FontAwesomeIcon icon={faGem} className="me-2" />
+                            Ofertas Exclusivas
+                        </div>
+                        <h2 className="modern-title">
+                            Descubre Nuestras Soluciones Premium
                         </h2>
-                        <div className="accent-line mx-auto mb-4"></div>
-                        <p className="lead text-muted">Descubre nuestras ofertas exclusivas diseñadas para impulsar tu negocio</p>
+                        <p className="modern-subtitle">
+                            Impulsa tu negocio con nuestras ofertas especialmente diseñadas para ti
+                        </p>
                     </div>
                     
-                    <div className="row g-4">
+                    <div className="row g-4 justify-content-center">
                         {offers.map((offer) => (
                             <div key={offer.id} className="col-md-6 col-lg-4">
-                                <div className="offer-card h-100">
-                                    <div className="offer-image-container">
+                                <div 
+                                    className={`modern-offer-card ${hoveredOffer === offer.id ? 'hovered' : ''}`}
+                                    onMouseEnter={() => setHoveredOffer(offer.id)}
+                                    onMouseLeave={() => setHoveredOffer(null)}
+                                >
+                                    <div className="offer-status">
+                                        <FontAwesomeIcon icon={faStar} className="status-icon" />
+                                        Oferta Especial
+                                    </div>
+                                    
+                                    <div className="modern-offer-image">
                                         {offer.image ? (
                                             <img 
                                                 src={getImageUrl(offer.image)} 
                                                 alt={offer.title}
-                                                className="offer-image"
                                             />
                                         ) : (
-                                            <div className="offer-no-image">
-                                                <FontAwesomeIcon icon={faTags} size="2x" />
+                                            <div className="placeholder-image">
+                                                <FontAwesomeIcon icon={faGem} />
                                             </div>
                                         )}
+                                        <div className="image-overlay"></div>
                                     </div>
-                                    <div className="offer-content">
-                                        <h3 className="offer-title">{offer.title}</h3>
-                                        <p className="offer-description">{offer.description}</p>
-                                        <div className="offer-price">
-                                            <span className="currency">S/.</span>
-                                            <span className="amount">{offer.price}</span>
+
+                                    <div className="modern-offer-content">
+                                        <h3 className="modern-offer-title">{offer.title}</h3>
+                                        <p className="modern-offer-description">{offer.description}</p>
+                                        
+                                        <div className="modern-offer-features">
+                                            <div className="feature">
+                                                <FontAwesomeIcon icon={faCheck} className="feature-icon" />
+                                                Servicio Premium
+                                            </div>
+                                            <div className="feature">
+                                                <FontAwesomeIcon icon={faCheck} className="feature-icon" />
+                                                Soporte Dedicado
+                                            </div>
                                         </div>
-                                        <a 
-                                            href={`https://wa.me/51952870388?text=Hola, estoy interesado en la oferta: ${encodeURIComponent(offer.title)}`}
-                                            className="btn btn-primary offer-button"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
-                                            Consultar Oferta
-                                        </a>
+
+                                        <div className="modern-price-tag">
+                                            <span className="currency">S/.</span>
+                                            <span className="price">{offer.price}</span>
+                                        </div>
+
+                                        <div className="modern-offer-actions">
+                                            <a 
+                                                href={`https://wa.me/51952870388?text=Hola, estoy interesado en la oferta: ${encodeURIComponent(offer.title)}`}
+                                                className="modern-cta-button"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <span className="button-content">
+                                                    <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
+                                                    Consultar Ahora
+                                                    <FontAwesomeIcon icon={faArrowRight} className="ms-2" />
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
