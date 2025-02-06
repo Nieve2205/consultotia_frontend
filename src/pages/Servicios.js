@@ -32,6 +32,17 @@ const Servicios = () => {
     return `${BASE_URL}${imageUrl}`;
   };
 
+  const handleServiceClick = (categoryId) => {
+    navigate(`/servicios/${categoryId}`);
+  };
+
+  const handleKeyPress = (event, categoryId) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      navigate(`/servicios/${categoryId}`);
+    }
+  };
+
   if (loading) {
     return <div className="loading">Cargando servicios...</div>;
   }
@@ -46,27 +57,40 @@ const Servicios = () => {
 
       <div className="services-grid">
         {categories.map((category) => (
-          <div key={category.id} className="service-item">
+          <div 
+            key={category.id} 
+            className="service-item"
+            onClick={() => handleServiceClick(category.id)}
+            onKeyPress={(e) => handleKeyPress(e, category.id)}
+            tabIndex={0}
+            role="button"
+            aria-label={`Ver detalles de ${category.name}`}
+          >
             <div className="service-content">
-              <div className="service-image-container">
-                {category.image ? (
-                  <img 
-                    src={getImageUrl(category.image)}
-                    alt={category.name}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="no-image">
-                    <span>{category.name[0]}</span>
+              <div className="service-image-wrapper">
+                <div className="service-image-container">
+                  {category.image ? (
+                    <img 
+                      src={getImageUrl(category.image)}
+                      alt={category.name}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="no-image">
+                      <span>{category.name[0]}</span>
+                    </div>
+                  )}
+                  <div className="image-overlay">
+                    <button 
+                      className="explore-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleServiceClick(category.id);
+                      }}
+                    >
+                      Explorar
+                    </button>
                   </div>
-                )}
-                <div className="image-overlay">
-                  <button 
-                    className="explore-btn"
-                    onClick={() => navigate(`/servicios/${category.id}`)}
-                  >
-                    Explorar
-                  </button>
                 </div>
               </div>
               <div className="service-info">
