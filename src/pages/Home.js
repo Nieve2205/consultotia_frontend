@@ -96,7 +96,7 @@ const Home = () => {
                             Ofertas Exclusivas
                         </div>
                         <h2 className="modern-title">
-                            Descubre Nuestras Soluciones Premium
+                            Descubre Nuestras Promociones
                         </h2>
                         <p className="modern-subtitle">
                             Impulsa tu negocio con nuestras ofertas especialmente diseñadas para ti
