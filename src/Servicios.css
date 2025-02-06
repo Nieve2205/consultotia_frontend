@@ -9,22 +9,77 @@
   --text-dark: #1e293b;
 }
 
+.modern-services {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background-color: var(--light-gray);
+}
+
+/* Header Styles */
+.services-header {
+  position: relative;
+  text-align: center;
+  padding: 80px 20px;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  color: var(--white);
+  box-shadow: 0 20px 40px rgba(0, 97, 255, 0.15);
+}
+
+.glass-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 70%);
+  z-index: 1;
+}
+
+.services-header h1 {
+  position: relative;
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  z-index: 2;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.services-header p {
+  position: relative;
+  font-size: 1.4em;
+  z-index: 2;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+/* Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* Service Item Styles */
 .service-item {
   background: var(--white);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  position: relative;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.service-content {
-  position: relative;
 }
 
 .service-image-container {
@@ -38,7 +93,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.6s ease;
 }
 
 .service-item:hover .service-image-container img {
@@ -47,14 +102,16 @@
 
 .image-overlay {
   position: absolute;
-  inset: 0; /* Esto es equivalente a top: 0, right: 0, bottom: 0, left: 0 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .service-item:hover .image-overlay {
@@ -65,7 +122,7 @@
   padding: 12px 28px;
   background: var(--white);
   color: var(--text-dark);
-  border: none;
+  border: 2px solid transparent;
   border-radius: 8px;
   font-size: 0.95em;
   font-weight: 500;
@@ -73,9 +130,6 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 2px solid transparent;
-  z-index: 2;
-  position: relative;
 }
 
 .explore-btn:hover {
@@ -86,7 +140,9 @@
 
 .service-info {
   padding: 30px;
-  background: var(--white);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-info h3 {
@@ -102,6 +158,7 @@
   line-height: 1.6;
   margin: 0;
   opacity: 0.85;
+  flex-grow: 1;
 }
 
 .no-image {
@@ -119,11 +176,39 @@
   opacity: 0.9;
 }
 
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 60px;
+  font-size: 1.4em;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+  .services-header {
+    padding: 60px 20px;
+    margin-bottom: 40px;
+  }
+
+  .services-header h1 {
+    font-size: 2.5em;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
   .service-image-container {
     height: 220px;
   }
-  
+
+  .service-info {
+    padding: 25px;
+  }
+
   .explore-btn {
     padding: 10px 24px;
     font-size: 0.9em;

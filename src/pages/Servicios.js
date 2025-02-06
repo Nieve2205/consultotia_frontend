@@ -28,9 +28,7 @@ const Servicios = () => {
 
   const getImageUrl = (imageUrl) => {
     if (!imageUrl) return null;
-    // Si la URL ya empieza con http, usarla tal cual
     if (imageUrl.startsWith('http')) return imageUrl;
-    // Si no, concatenar con la URL base
     return `${BASE_URL}${imageUrl}`;
   };
 
@@ -49,36 +47,30 @@ const Servicios = () => {
       <div className="services-grid">
         {categories.map((category) => (
           <div key={category.id} className="service-item">
-            <div className="service-content">
-              <div className="service-image-container">
-                {category.image ? (
-                  <img 
-                    src={getImageUrl(category.image)}
-                    alt={category.name}
-                    onError={(e) => {
-                      console.log('Error loading image:', category.image);
-                      e.target.onerror = null; // Prevenir bucle infinito
-                      e.target.src = '/placeholder.jpg'; // Imagen por defecto
-                    }}
-                  />
-                ) : (
-                  <div className="no-image">
-                    <span>{category.name[0]}</span>
-                  </div>
-                )}
-                <div className="image-overlay">
-                  <button 
-                    className="explore-btn"
-                    onClick={() => navigate(`/servicios/${category.id}`)}
-                  >
-                    Explorar
-                  </button>
+            <div className="service-image-container">
+              {category.image ? (
+                <img 
+                  src={getImageUrl(category.image)}
+                  alt={category.name}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="no-image">
+                  <span>{category.name[0]}</span>
                 </div>
+              )}
+              <div className="image-overlay">
+                <button 
+                  className="explore-btn"
+                  onClick={() => navigate(`/servicios/${category.id}`)}
+                >
+                  Explorar
+                </button>
               </div>
-              <div className="service-info">
-                <h3>{category.name}</h3>
-                <p>{category.description}</p>
-              </div>
+            </div>
+            <div className="service-info">
+              <h3>{category.name}</h3>
+              <p>{category.description}</p>
             </div>
           </div>
         ))}
