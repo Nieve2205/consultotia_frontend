@@ -14,6 +14,7 @@
   margin: 0 auto;
   padding: 40px 20px;
   min-height: 100vh;
+  background-color: var(--light-gray);
 }
 
 /* Header Styles */
@@ -64,14 +65,15 @@
 
 /* Service Item Styles */
 .service-item {
+  position: relative;
   background: var(--white);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s ease;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .service-item:hover {
@@ -79,10 +81,17 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
+.service-content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .service-image-container {
+  position: relative;
   width: 100%;
   height: 250px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -109,10 +118,12 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .service-item:hover .image-overlay {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .explore-btn {
@@ -127,6 +138,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  z-index: 10;
 }
 
 .explore-btn:hover {
@@ -137,9 +149,10 @@
 
 .service-info {
   padding: 30px;
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  background: var(--white);
 }
 
 .service-info h3 {
@@ -155,7 +168,7 @@
   line-height: 1.6;
   margin: 0;
   opacity: 0.85;
-  flex-grow: 1;
+  flex: 1;
 }
 
 .no-image {
@@ -182,7 +195,6 @@
   font-weight: 600;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .services-header {
     padding: 60px 20px;

@@ -47,30 +47,32 @@ const Servicios = () => {
       <div className="services-grid">
         {categories.map((category) => (
           <div key={category.id} className="service-item">
-            <div className="service-image-container">
-              {category.image ? (
-                <img 
-                  src={getImageUrl(category.image)}
-                  alt={category.name}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="no-image">
-                  <span>{category.name[0]}</span>
+            <div className="service-content">
+              <div className="service-image-container">
+                {category.image ? (
+                  <img 
+                    src={getImageUrl(category.image)}
+                    alt={category.name}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="no-image">
+                    <span>{category.name[0]}</span>
+                  </div>
+                )}
+                <div className="image-overlay">
+                  <button 
+                    className="explore-btn"
+                    onClick={() => navigate(`/servicios/${category.id}`)}
+                  >
+                    Explorar
+                  </button>
                 </div>
-              )}
-              <div className="image-overlay">
-                <button 
-                  className="explore-btn"
-                  onClick={() => navigate(`/servicios/${category.id}`)}
-                >
-                  Explorar
-                </button>
               </div>
-            </div>
-            <div className="service-info">
-              <h3>{category.name}</h3>
-              <p>{category.description}</p>
+              <div className="service-info">
+                <h3>{category.name}</h3>
+                <p>{category.description}</p>
+              </div>
             </div>
           </div>
         ))}
