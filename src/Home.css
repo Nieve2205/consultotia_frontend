@@ -222,9 +222,23 @@
 .modern-title {
     font-size: 3rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-    -webkit-text-fill-color: transparent;
+    color: #2c3e50;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.modern-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #007bff, #00bcd4);
+    border-radius: 2px;
 }
 
 .modern-subtitle {
