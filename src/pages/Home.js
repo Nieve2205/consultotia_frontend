@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import axios from 'axios';
 
+const BASE_URL = 'https://consultoria.up.railway.app';
 const Home = () => {
     const [offers, setOffers] = useState([]);
     const message = "Hola, estoy interesado en sus servicios de consultoría...";
