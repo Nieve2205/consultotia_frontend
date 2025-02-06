@@ -3,11 +3,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
+    const [offers, setOffers] = useState([]);
     const message = "Hola, estoy interesado en sus servicios de consultoría...";
     const encodedMessage = encodeURIComponent(message);
+
+    useEffect(() => {
+        const fetchOffers = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/offers/`);
+                setOffers(response.data);
+            } catch (error) {
+                console.error('Error fetching offers:', error);
+            }
+        };
+        fetchOffers();
+    }, []);
+
+    const getImageUrl = (imageUrl) => {
+        if (!imageUrl) return null;
+        if (imageUrl.startsWith('http')) return imageUrl;
+        return `${BASE_URL}${imageUrl}`;
+    };
+
     return (
         <div className="home-container">
             {/* Carrusel Modernizado */}
@@ -94,6 +113,59 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+             {/* Nueva sección de ofertas */}
+             <div className="offers-section py-5">
+                <div className="container">
+                    <div className="text-center mb-5">
+                        <h2 className="display-4 fw-bold text-primary">
+                            <FontAwesomeIcon icon={faTags} className="me-3" />
+                            Ofertas Especiales
+                        </h2>
+                        <div className="accent-line mx-auto mb-4"></div>
+                        <p className="lead text-muted">Descubre nuestras ofertas exclusivas diseñadas para impulsar tu negocio</p>
+                    </div>
+                    
+                    <div className="row g-4">
+                        {offers.map((offer) => (
+                            <div key={offer.id} className="col-md-6 col-lg-4">
+                                <div className="offer-card h-100">
+                                    <div className="offer-image-container">
+                                        {offer.image ? (
+                                            <img 
+                                                src={getImageUrl(offer.image)} 
+                                                alt={offer.title}
+                                                className="offer-image"
+                                            />
+                                        ) : (
+                                            <div className="offer-no-image">
+                                                <FontAwesomeIcon icon={faTags} size="2x" />
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="offer-content">
+                                        <h3 className="offer-title">{offer.title}</h3>
+                                        <p className="offer-description">{offer.description}</p>
+                                        <div className="offer-price">
+                                            <span className="currency">S/.</span>
+                                            <span className="amount">{offer.price}</span>
+                                        </div>
+                                        <a 
+                                            href={`https://wa.me/51952870388?text=Hola, estoy interesado en la oferta: ${encodeURIComponent(offer.title)}`}
+                                            className="btn btn-primary offer-button"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <FontAwesomeIcon icon={faWhatsapp} className="me-2" />
+                                            Consultar Oferta
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
