@@ -33,7 +33,7 @@ const Experiencia = () => {
       title: "AGROINCA PPX",
     },
     {
-      image: "https://scontent.faqp3-1.fna.fbcdn.net/v/t39.30808-6/466478431_568342605679529_4626951724999175921_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEOXj6tIysBTlCRUZNjhbXxjkwWX8JtFy2OTBZfwm0XLSIH4_38jCH4jJcSpT8Z2lLuoFir37X7JkC1jpSs-lby&_nc_ohc=KkDF4J-YeM4Q7kNvgGvF8oS&_nc_oc=AdiC-btcZfmJeS-BAEHqjHfdsX98WwqsoHLiHLztN87mVuVfn2ETqaRUKlp435QLZWxKu5d6q_4DHa7Fp8t5E9Ah&_nc_zt=23&_nc_ht=scontent.faqp3-1.fna&_nc_gid=ASJnlOxw0-6ZMpHZF1OLR5z&oh=00_AYCZR3U0L4pxDORWuaSbI0E5CeSl63d7OJv689m28cusZQ&oe=676279C7",
+      image: "https://media.licdn.com/dms/image/v2/C4D0BAQHwlsowQ4Qr-A/company-logo_200_200/company-logo_200_200/0/1637945868087?e=2147483647&v=beta&t=6O-QKx1e_Czas9neyXF-vcn04-8v2d45wLtEWmR9u2Y",
       title: "SUMAC PAQARI",
       category: "Empresa de gestión ambiental"
     },
