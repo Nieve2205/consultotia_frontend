@@ -82,7 +82,7 @@ const Contacto = () => {
                   </div>
                   <div className="info-content">
                     <h3>¿Tienes alguna consulta?</h3>
-                    <p>(+51) 957 618 659</p>
+                    <p>(+51) 952 870 388</p>
                   </div>
                 </div>
 
@@ -92,7 +92,7 @@ const Contacto = () => {
                   </div>
                   <div className="info-content">
                     <h3>Horario de trabajo</h3>
-                    <p>Lunes- Sábados: 08:00-18:00</p>
+                    <p>Lunes- Viernes: 08:00-18:00</p>
                     <p>Sábados: 08:00-02:30</p>
                   </div>
                 </div>
