@@ -19,14 +19,12 @@
 
 /* Header Styles */
 .services-header {
-  position: relative;
+  background: linear-gradient(135deg, #0052cc, #ff6b2b);
+  color: white;
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 80px 20px;
-  margin-bottom: 60px;
-  background: linear-gradient(135deg, var(--primary-blue) , var(--primary-orange));
+  margin-bottom: 3rem;
   border-radius: 24px;
-  overflow: hidden;
-  color: var(--white);
   box-shadow: 0 20px 40px rgba(0, 97, 255, 0.15);
 }
 
