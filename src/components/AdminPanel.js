@@ -221,15 +221,6 @@ const AdminPanel = () => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="description">Descripción:</label>
-                        <textarea
-                            id="description"
-                            name="description"
-                            defaultValue={editingCategory?.description || ''}
-                        />
-                    </div>
-
-                    <div className="form-group">
                         <label htmlFor="image">Imagen:</label>
                         <input
                             type="file"
