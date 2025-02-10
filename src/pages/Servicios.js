@@ -95,7 +95,6 @@ const Servicios = () => {
               </div>
               <div className="service-info">
                 <h3>{category.name}</h3>
-                <p>{category.description}</p>
               </div>
             </div>
           </div>

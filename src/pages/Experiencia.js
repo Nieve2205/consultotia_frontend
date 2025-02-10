@@ -13,7 +13,7 @@ const Experiencia = () => {
     {
       icon: faCertificate,
       title: "Certificaciones",
-      description: "Acreditaciones internacionales"
+      description: "Acreditaciones Nacionales"
     },
     {
       icon: faAward,
@@ -23,7 +23,7 @@ const Experiencia = () => {
     {
       icon: faTrophy,
       title: "Trayectoria",
-      description: "10 años de experiencia"
+      description: "4 años de experiencia"
     }
   ];
 

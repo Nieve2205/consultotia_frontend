@@ -128,7 +128,7 @@
 
 .explore-btn {
   padding: 12px 28px;
-  background: var(--white);
+  background: var(--primary-orange);
   color: var(--text-dark);
   border: 2px solid transparent;
   border-radius: 8px;
@@ -164,7 +164,7 @@
 
 .service-info h3 {
   color: var(--primary-blue);
-  font-size: 1.5em;
+  font-size: 1.0em;
   margin-bottom: 15px;
   font-weight: 700;
 }
