@@ -15,10 +15,10 @@ const Contacto = () => {
 
     try {
       const result = await emailjs.sendForm(
-        'service_gvoyvzf', // Reemplaza con tu Service ID
-        'template_ue2iia8', // Reemplaza con tu Template ID
+        'service_ojpxwjk', // Reemplaza con tu Service ID
+        'template_13yr569', // Reemplaza con tu Template ID
         form.current,
-        '3dnxF-rI7icmrSceW' // Reemplaza con tu Public Key
+        'DI0U7NHqgPYkLgs8E' // Reemplaza con tu Public Key
       );
 
       if (result.text === 'OK') {
