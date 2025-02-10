@@ -169,15 +169,6 @@
   font-weight: 900;
 }
 
-.service-info p {
-  color: var(--text-dark);
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.85;
-  flex: 1;
-}
-
 .no-image {
   width: 100%;
   height: 100%;
