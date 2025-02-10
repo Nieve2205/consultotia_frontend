@@ -13,7 +13,7 @@ const Footer = () => {
         <Container>
           <Row className="g-4">
             {/* Logo y Descripción */}
-            <Col lg={4} md={6}>
+            <Col lg={4} md={10}>
               <div className="footer-brand">
                 <div className="logo-container">
                   <img src={logo} alt="Logo CORVEL'S" className="footer-logo" />
