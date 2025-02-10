@@ -59,7 +59,7 @@ const CustomNavbar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            {['Inicio', 'Nosotros', 'Servicios', 'Experiencia', 'Contacto','Blog', 'App Móvil'].map((item, index) => (
+            {['Inicio', 'Nosotros', 'Servicios', 'Experiencia', 'Contacto','Blog', 'Servicios Especiales'].map((item, index) => (
               <Nav.Link
                 key={index}
                 href={item === 'Inicio' ? '/' : `/${item.toLowerCase()}`}
