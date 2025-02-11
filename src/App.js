@@ -16,7 +16,7 @@ import LoginForm from './pages/LoginForm';
 import AdminContainer from './pages/AdminContainer';
 import Blog from './pages/Blog';
 import BlogPostDetail from './pages/BlogDetails';
-import { Helmet } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 
 const AppContent = () => {
   const location = useLocation();
@@ -25,7 +25,14 @@ const AppContent = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Helmet>
+        <title>Corvel's Consultoria - Servicios de Consultoría Técnica</title>
+        <meta name="description" content="Empresa especializada en consultoría, asesoría y capacitaciones de Seguridad, Salud Ocupacional, Medio Ambiente, Calidad, Ingeniería y Proyectos, entre otros." />
         <meta name="google-site-verification" content="S47Kam1yL3iWAZ6XXxuBtBzk_hrVAi5fnQCkHbHOuFg" />
+        {/* Añade más meta tags para mejorar el SEO */}
+        <meta name="keywords" content="consultoría, empresarial, SST, seguridad laboral, procesos, mejora continua, Perú" />
+        <meta property="og:title" content="Corvel's Consultoria" />
+        <meta property="og:description" content="Servicios profesionales de consultoría empresarial" />
+        <meta property="og:url" content="https://corvelsconsultoria.vercel.app" />
       </Helmet>
       {!hideNavAndFooter && <WhatsappButton />}
       {!hideNavAndFooter && <NavigationBar />}
@@ -54,9 +61,11 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <HelmetProvider> 
+      <Router>
+        <AppContent />
+      </Router>
+    </HelmetProvider>
   );
 };
 
