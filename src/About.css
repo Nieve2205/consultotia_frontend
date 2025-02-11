@@ -148,6 +148,34 @@
   color: #f0f0f0;
 }
 
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-content span {
+  margin-bottom: 0.5rem; /* Espacio entre cada span */
+}
+
+/* Para mejorar el aspecto visual */
+.info-item {
+  margin-bottom: 2rem;
+}
+
+.info-content h3 {
+  margin-bottom: 1rem;
+}
+
+/* Para los números de teléfono y correos */
+.info-content span {
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.info-content span:hover {
+  color: #0052cc; /* El color azul de tu tema */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-us-section {
