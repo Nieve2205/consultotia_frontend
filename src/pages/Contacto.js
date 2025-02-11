@@ -82,7 +82,10 @@ const Contacto = () => {
                   </div>
                   <div className="info-content">
                     <h3>¿Tienes alguna consulta?</h3>
-                    <p>(+51) 952 870 388</p>
+                      <span>+51 952 870 388</span>
+                      <span>+51 959 342 211</span>
+                      <span>+51 973 239 832</span>
+                      <span>+51 953 762 677</span>
                   </div>
                 </div>
 
@@ -103,7 +106,10 @@ const Contacto = () => {
                   </div>
                   <div className="info-content">
                     <h3>Correo electrónico</h3>
-                    <p>corvels.consultoria@gmail.com</p>
+                      <span>corvels_srl@hotmail.com</span>
+                      <span>corvels.proyectos@gmail.com</span>
+                      <span>corvels.consultoria@gmail.com</span>
+                      <span>consultoriacorvels@gmail.com</span>
                   </div>
                 </div>
               </div>
