@@ -16,6 +16,7 @@ import LoginForm from './pages/LoginForm';
 import AdminContainer from './pages/AdminContainer';
 import Blog from './pages/Blog';
 import BlogPostDetail from './pages/BlogDetails';
+import { Helmet } from 'react-helmet-async';
 
 const AppContent = () => {
   const location = useLocation();
@@ -23,6 +24,9 @@ const AppContent = () => {
 
   return (
     <div className="d-flex flex-column min-vh-100">
+      <Helmet>
+        <meta name="google-site-verification" content="S47Kam1yL3iWAZ6XXxuBtBzk_hrVAi5fnQCkHbHOuFg" />
+      </Helmet>
       {!hideNavAndFooter && <WhatsappButton />}
       {!hideNavAndFooter && <NavigationBar />}
       <div className={`content-container ${!hideNavAndFooter ? 'mb-5' : ''}`}> 
