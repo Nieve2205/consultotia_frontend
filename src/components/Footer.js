@@ -82,7 +82,7 @@ const Footer = () => {
                 <div className="social-links">
                   {[
                     { icon: faFacebook, name: 'Facebook', url: 'https://www.facebook.com' },
-                    { icon: faLinkedin, name: 'LinkedIn', url: 'www.linkedin.com/in/corvelsconsultoria' },
+                    { icon: faLinkedin, name: 'LinkedIn', url: 'https://www.linkedin.com/in/corvelsconsultoria' },
                     { icon: faInstagram, name: 'Instagram', url: 'https://www.instagram.com/corvelsconsultoria?igsh=MXcwYzNsZ2w3NzY1OA==' }
                   ].map((social, index) => (
                     <a 
