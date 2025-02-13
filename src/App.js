@@ -32,6 +32,7 @@ const AppContent = () => {
         <meta name="keywords" content="consultoría, empresarial, SST, seguridad laboral, procesos, mejora continua, Perú" />
         <meta property="og:title" content="Corvel's Consultoria" />
         <meta property="og:description" content="Servicios profesionales de consultoría empresarial" />
+        <meta property="og:image" content="/logo.png" />
         <meta property="og:url" content="https://corvelsconsultoria.vercel.app" />
       </Helmet>
       {!hideNavAndFooter && <WhatsappButton />}
